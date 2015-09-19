@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Przyjęcie sylwestrowe</title>
+</head>
+<body>
+    <div>
+        Witaj świecie z widoku
+        <br />
+        @ViewBag.Greeting 
+        <p> Zapraszamy na wspaniałe przyjęcie. <br />
+        </p>
+        @Html.ActionLink("Wyślij RSVP", "RsvpForm")
+    </div>
+</body>
+</html>
