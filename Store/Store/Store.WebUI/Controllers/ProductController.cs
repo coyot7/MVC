@@ -19,7 +19,28 @@ namespace Store.WebUI.Controllers
             this.repository = productRepository;
         }
 
-        public ViewResult List(string category, int page = 1)
+        public ViewResult Index(string category = null, int page = 1)
+        {
+            ProductsListViewModel viewModel = new ProductsListViewModel
+            {
+                Products = repository.Products
+                  .OrderBy(x => x.ProductID)
+                  .Skip((page - 1) * PageSize)
+                  .Take(PageSize),
+                PagingInfo = new PageInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = category == null ?
+                    repository.Products.Count() :
+                    repository.Products.Where(x => x.Category == category).Count()
+                }
+            };
+            return View(viewModel);
+        }
+
+
+        public ViewResult List(string category = null, int page = 1)
         {
             ProductsListViewModel viewModel = new ProductsListViewModel
             {
