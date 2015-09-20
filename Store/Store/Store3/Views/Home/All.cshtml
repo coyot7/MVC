@@ -1,0 +1,34 @@
+﻿@model Store3.Models.ProductsListViewModel
+
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+
+@foreach (var item in Model.Products) {
+    <tr>
+        <td>
+            <h3>@item.Name</h3>
+            @item.Description
+            <h4>@item.Price.ToString("c")</h4>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+ 
+</table>
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("All",
+            new { page = x, category = Model.CurrentCategory }))
+</div>
+

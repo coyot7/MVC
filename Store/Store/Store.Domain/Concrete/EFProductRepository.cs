@@ -16,5 +16,17 @@ namespace Store.Domain.Concrete
         {
             get { return context.Products; }
         }
+
+        public void CreateProduct(Product prod)
+        {
+            context.Products.Add(prod);
+            context.SaveChanges();
+        }
+
+        public void Delete(int Id)
+        {
+            context.Products.Remove(context.Products.Find(Id));
+            context.SaveChanges();
+        }
     }
 }

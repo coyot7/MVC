@@ -12,23 +12,19 @@ namespace Store.WebUI
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
             
             routes.MapRoute(null,
             "",
             new
             {
                 controller = "Product",
-                action = "List",
-                category = (string)null,
+                action = "Index",
                 page = 1
             }
             );
             
-            routes.MapRoute(null,
-            "Strona{page}",
-            new { controller = "Product", action = "List", category = (string)null },
-            new { page = @"\d+" }
-            );
+           
             
             routes.MapRoute(null,
             "{category}",

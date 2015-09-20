@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Store.Domain.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace Store.WebUI.Models
 {
@@ -12,4 +13,5 @@ namespace Store.WebUI.Models
         public PageInfo PagingInfo { get; set; }
         public string CurrentCategory { get; set; }
     }
+
 }

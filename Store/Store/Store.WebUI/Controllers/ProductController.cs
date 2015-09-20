@@ -40,6 +40,21 @@ namespace Store.WebUI.Controllers
         }
 
 
+
+
+        public ViewResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Product prod)
+        {
+            repository.CreateProduct(prod);
+            return View("Success");
+        }
+
+
         public ViewResult List(string category = null, int page = 1)
         {
             ProductsListViewModel viewModel = new ProductsListViewModel
@@ -60,6 +75,12 @@ namespace Store.WebUI.Controllers
                 CurrentCategory = category
             };
             return View(viewModel);
+        }
+
+        public ActionResult Delete (int id)
+        {
+            repository.Delete(id);
+            return View("Success");
         }
     }
 }

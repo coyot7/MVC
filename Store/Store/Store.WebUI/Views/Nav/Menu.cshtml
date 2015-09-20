@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<string> 
-
+@Html.ActionLink("Create", "Create", "Product", null, new { @class = "btn btn-primary" })
 @Html.ActionLink("Home" ,"Index", "Product")
 
 @foreach (var link in Model)

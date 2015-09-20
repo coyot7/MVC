@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace Store.Domain.Entities
     public class Product
     {
         public int ProductID { get; set; }
+        [Required(ErrorMessage = "Pole wymagane")]
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }

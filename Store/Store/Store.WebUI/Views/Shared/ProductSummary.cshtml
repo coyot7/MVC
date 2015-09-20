@@ -6,3 +6,7 @@
     <h4>@Model.Price.ToString("c")</h4>
 </div>
 
+<td>
+    @Html.ActionLink("Delete", "Delete", new { id = Model.ProductID }, new { @class = "btn btn-white btn-sm" })
+</td>
+
